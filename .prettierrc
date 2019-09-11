@@ -1,0 +1,9 @@
+{
+  "formatOnSave": true,
+  "singleQuote":true,
+  "tabWidth": 2,
+  "semi": true,
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "arrowParens": "always"
+}

@@ -1,0 +1,53 @@
+$bg-hover: darken($primary, 30%) !important;
+
+.header {
+  @include media-breakpoint-down(sm) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 4;
+  }
+}
+
+.header-logo {
+  width: 150px;
+  height: 60px;
+  @include image-path("shop_logo.png");
+
+  &-text {
+    letter-spacing: .2rem
+  }
+}
+
+.input-search {
+  max-width: 100%;
+  height: 3rem;
+}
+
+.icon-btn {
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: $bg-hover;
+  }
+}
+
+.icon-size {
+  position: relative;
+  font-size: 1.5rem;
+}
+
+.icon-badge {
+  position: absolute;
+  top: -.5rem;
+  right: -.9rem;
+  font-size: .9rem;
+  border-radius: 2rem;
+  @include media-breakpoint-down(sm) {
+    font-size: .8rem;
+  }
+}

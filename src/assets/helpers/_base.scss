@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap");
+
+* {
+  font-family: "Noto Sans TC", "Montserrat", sans-serif, "Microsoft JhengHei";
+}
+
+.btn.active.focus,
+.btn.active:focus,
+.btn.focus,
+.btn.focus:active,
+.btn:active:focus,
+.btn:focus {
+  outline: none;
+  outline-offset: 0;
+  box-shadow: none;
+  border: none;
+}
+
+.container-sm {
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.fixed-margin-top {
+  @include media-breakpoint-down(sm) {
+    margin-top: 5.25rem;
+  }
+}
+
+.no-gutters-sm {
+  @include media-breakpoint-down(sm) {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}

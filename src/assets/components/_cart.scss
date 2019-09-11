@@ -1,0 +1,37 @@
+.cart-dropdown {
+  position: relative;
+  // 取消點擊後的全選
+  user-select: none;
+  &-menu {
+    position: absolute;
+    // 將 dropdown 固定在左方
+    right: 0;
+    left: auto;
+    margin-top: 0.3rem;
+    z-index: 4;
+    box-shadow: 0px 0px 10px 3px $gray-300;
+    background-color: #fff;
+  }
+}
+
+.cart-dropdown-item-image {
+  width: 40px;
+  height: 40px;
+  @include image-path("carousel_food.jpg");
+}
+
+
+.cart-icon {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  color: $danger;
+  border: 1px solid $danger;
+  padding: 0.8rem;
+  transition: all 0.3s ease;
+  &:hover {
+    color: $white;
+    border: 1px solid $danger;
+    background-color: $danger;
+  }
+}

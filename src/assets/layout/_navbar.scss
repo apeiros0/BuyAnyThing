@@ -1,0 +1,22 @@
+.navbar-shadow {
+  box-shadow: 0px 6px 10px 3px $gray-500;
+  z-index: 2;
+}
+
+.navbar-shadow-bottom {
+  box-shadow: 5px 0px 9px 3px $gray-400;
+}
+
+.nav-link {
+  &:hover {
+    color: $primary !important;
+  }
+}
+
+.navbar-fixed {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 4;
+}

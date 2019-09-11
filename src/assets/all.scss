@@ -1,0 +1,26 @@
+@import "~bootstrap/scss/functions";
+@import "./helpers/variables";
+@import "~bootstrap/scss/bootstrap";
+
+// Helpers
+@import "./helpers/base";
+@import "./helpers/mixin";
+
+// Layout
+@import "./layout/header";
+@import "./layout/navbar";
+@import "./layout/footer";
+
+// Pages
+@import "./pages/coupons";
+@import "./pages/checkout";
+
+// Components
+@import "./components/carousel";
+@import "./components/banner";
+@import "./components/hotProducts";
+@import "./components/productCard";
+@import "./components/cart";
+
+// Utils
+@import url("@fortawesome/fontawesome-free/css/all.css");

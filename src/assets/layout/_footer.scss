@@ -1,0 +1,7 @@
+.footer {
+  width: 100%;
+  border-top: 2px solid darken($primary, 10%);
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 4rem;
+  }
+}
