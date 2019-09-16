@@ -28,5 +28,15 @@
 }
 
 @mixin image-path($image-name) {
-  background-image: url($assets + $image-name);
+  background-image: url($assets+$image-name);
+}
+
+// 間距
+.letter-space {
+  letter-spacing: 1rem;
+}
+
+// 不斷行
+.white-space-nowrap {
+  white-space: nowrap;
 }

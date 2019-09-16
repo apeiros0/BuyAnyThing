@@ -16,7 +16,7 @@ $bg-hover: darken($primary, 30%) !important;
   @include image-path("shop_logo.png");
 
   &-text {
-    letter-spacing: .2rem
+    letter-spacing: 0.2rem;
   }
 }
 
@@ -28,11 +28,12 @@ $bg-hover: darken($primary, 30%) !important;
 .icon-btn {
   width: 3rem;
   height: 3rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    background-color: $bg-hover;
+  &.active {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      background-color: $bg-hover;
+    }
   }
 }
 
@@ -43,11 +44,11 @@ $bg-hover: darken($primary, 30%) !important;
 
 .icon-badge {
   position: absolute;
-  top: -.5rem;
-  right: -.9rem;
-  font-size: .9rem;
+  top: -0.5rem;
+  right: -0.9rem;
+  font-size: 0.9rem;
   border-radius: 2rem;
   @include media-breakpoint-down(sm) {
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 }

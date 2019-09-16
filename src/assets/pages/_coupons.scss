@@ -1,5 +1,25 @@
 .coupon-content {
   background-color: rgb(37, 59, 23);
-  border: 15px solid rgba(255, 166, 32, 0.966);
-  box-shadow: 5px 5px 5px 1px $gray-500;
+  border: 0.9375rem solid rgba(255, 166, 32, 0.966);
+  box-shadow: 0.3125rem 0.3125rem 0.3125rem 0.0625rem $gray-500;
+}
+
+.coupon-code {
+  position: relative;
+}
+
+.icon-copy {
+  position: absolute;
+  top: 0;
+  right: -1.7rem;
+  font-size: 1.2rem;
+  user-select: none;
+
+  &.active {
+    cursor: pointer;
+    transition: all .3s ease;
+    &:hover {
+      color: $primary !important;
+    }
+  }
 }

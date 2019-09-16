@@ -1,5 +1,5 @@
 .carousel-image {
-  height: 30rem;
+  height: 35rem;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
@@ -19,8 +19,8 @@
 }
 
 .carousel-content {
-  min-width: 500px;
-  min-height: 300px;
+  min-width: 31.25rem;
+  min-height: 18.75rem;
   background-color: transparent;
   display: flex !important;
   flex-direction: column;
@@ -43,7 +43,7 @@
 
   .carousel-title {
     font-size: 3rem;
-    letter-spacing: 5px;
+    letter-spacing: 0.3125rem;
     @include media-breakpoint-down(md) {
       font-size: 2rem;
     }

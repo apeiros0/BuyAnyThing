@@ -5,6 +5,7 @@
 // Helpers
 @import "./helpers/base";
 @import "./helpers/mixin";
+@import './helpers/dashboard';
 
 // Layout
 @import "./layout/header";
@@ -12,13 +13,15 @@
 @import "./layout/footer";
 
 // Pages
+@import "./pages/index";
 @import "./pages/coupons";
 @import "./pages/checkout";
+@import "./pages/productInfo";
 
 // Components
 @import "./components/carousel";
 @import "./components/banner";
-@import "./components/hotProducts";
+@import "./components/newProducts";
 @import "./components/productCard";
 @import "./components/cart";
 

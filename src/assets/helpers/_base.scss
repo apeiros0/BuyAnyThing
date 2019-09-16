@@ -19,8 +19,8 @@
 .container-sm {
   @include media-breakpoint-down(sm) {
     width: 100%;
-    padding-right: 0px;
-    padding-left: 0px;
+    padding-right: 0rem;
+    padding-left: 0rem;
     margin-right: auto;
     margin-left: auto;
   }

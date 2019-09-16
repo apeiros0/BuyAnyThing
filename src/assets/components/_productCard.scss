@@ -1,9 +1,26 @@
 .card-image {
   width: 100%;
-  height: 280px;
-  @include image-path("banner_new_product.jpg");
+  height: 17.5rem;
+  position: relative;
   @include media-breakpoint-down(md) {
-    height: 200px;
+    height: 12.5rem;
+  }
+  &::after, &::before {
+    content: '';
+    position: absolute;
+    top: 0rem;
+    bottom: 0rem;
+    right: 0rem;
+    left: 0rem;
+    transform: scale(0, 0);
+    transition: all .3s ease;
+    background-color: rgba($black, .45);
+  }
+
+  &-title {
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease;
   }
 }
 
@@ -11,17 +28,39 @@
   width: 100%;
   overflow: hidden;
   z-index: 3;
+  &:hover {
+    .card-btn {
+      transform: translateY(0rem);
+    }
+    .card-title {
+      font-weight: bold;
+    }
+    .card-image {
+      &::after {
+        content: '';
+        transform: scale(1, 1);
+      }
+      &-title {
+        opacity: 1;
+        visibility: visible;
+        z-index: 2;
+      }
+    }
+  }
   &-btn {
     transform: translateY(2rem);
     transition: all 0.2s ease;
     @include media-breakpoint-down(md) {
-      transform: translateY(0);
+      transform: translateY(0rem);
     }
   }
+  &-title {
+    color: $black;
+    transition: all .3s ease;
+  }
+}
 
-  &:hover {
-    .card-btn {
-      transform: translateY(0);
-    }
-  }
+.disabled {
+  pointer-events: none;
+  opacity: 0.65;
 }

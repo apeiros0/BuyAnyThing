@@ -1,0 +1,86 @@
+%product-category-rectangle {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0rem;
+    bottom: 0rem;
+    right: 0rem;
+    left: 0rem;
+    width: 100%;
+    background-color: rgba($white, 0.6);
+    z-index: 1;
+    transition: all 0.3s ease;
+  }
+}
+
+.product-category-left-top {
+  @extend %product-category-rectangle;
+  &:hover {
+    &::after {
+      top: 1rem;
+      bottom: 0rem;
+      right: 0rem;
+      left: 1rem;
+    }
+  }
+}
+.product-category-left-bottom {
+  @extend %product-category-rectangle;
+  &:hover {
+    &::after {
+      top: 0rem;
+      bottom: 1rem;
+      right: 0rem;
+      left: 1rem;
+    }
+  }
+}
+.product-category-right-top {
+  @extend %product-category-rectangle;
+  &:hover {
+    &::after {
+      top: 1rem;
+      bottom: 0rem;
+      right: 0rem;
+      left: -1rem;
+    }
+  }
+}
+.product-category-right-bottom {
+  @extend %product-category-rectangle;
+  &:hover {
+    &::after {
+      top: 0rem;
+      bottom: 1rem;
+      right: 0rem;
+      left: -1rem;
+    }
+  }
+}
+.product-category-title {
+  z-index: 2;
+}
+.product-category-food {
+  width: 100%;
+  height: 31.25rem;
+  @include image-path("category_food.jpg");
+}
+
+.product-category-clothes {
+  width: 100%;
+  height: 25rem;
+  @include image-path("category_clothes.jpg");
+}
+
+.product-category-furniture {
+  width: 100%;
+  height: 18.75rem;
+  @include image-path("category_furniture.jpg");
+}
+
+.product-category-service {
+  width: 100%;
+  height: 37.5rem;
+  @include image-path("category_service.jpg");
+}

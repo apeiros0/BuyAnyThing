@@ -3,7 +3,8 @@
     <!-- Nav -->
     <section class="navbar-shadow d-none d-md-block">
       <nav
-        class="navbar navbar-expand-md navbar-light d-flex align-items-center container">
+        class="navbar navbar-expand-md navbar-light d-flex align-items-center container"
+      >
         <ul class="navbar-nav">
           <li class="nav-item mr-2">
             <router-link class="nav-link font-weight-bold" to="/index"
@@ -68,7 +69,9 @@
                 class="d-flex flex-column justify-content-center align-items-center"
               >
                 <i class="fas fa-cart-plus icon-size mb-1">
-                  <span class="badge badge-danger icon-badge">0</span>
+                  <span class="badge badge-danger icon-badge">{{
+                    carts.length
+                  }}</span>
                 </i>
                 購物車
               </div>
@@ -81,7 +84,33 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      carts: [],
+    };
+  },
+  created() {
+    const self = this;
+    self.getCartList();
+
+    // 自定義名稱 'updateCart:nav'
+    self.$bus.$on('updateCart:nav', () => {
+      self.getCartList();
+    });
+  },
+  methods: {
+    getCartList() {
+      const self = this;
+      const api = `${process.env.API_URL}/api/${process.env.API_PATH}/cart`;
+      self.$http.get(api).then((response) => {
+        if (response.data.success) {
+          self.carts = [...response.data.data.carts];
+        }
+      });
+    },
+  },
+};
 </script>
 
 <style></style>

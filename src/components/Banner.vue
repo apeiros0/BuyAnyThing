@@ -4,7 +4,7 @@
       <div class="bg-cover banner-image banner-image-newproduct">
         <router-link to="/products">
           <div
-            class="banner-image-content d-flex justify-content-center align-items-center "
+            class="banner-image-content d-flex justify-content-center align-items-center"
           >
             <span
               class="banner-image-content-title mb-0 text-white font-weight-bold text-center"
