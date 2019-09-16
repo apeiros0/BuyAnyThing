@@ -3,6 +3,7 @@
     <div class="col-12 col-md-6">
       <div class="row">
         <div class="col-12">
+          <!-- 使用 query 傳遞參數 /product?category=value -->
           <router-link :to="{ path: '/products', query: { category: filterCategory[0] } }">
             <div
               class="bg-cover product-category-left-top product-category-food d-flex justify-content-center align-items-center"

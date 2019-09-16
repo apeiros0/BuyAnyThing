@@ -8,7 +8,7 @@
     <div class="row no-gutters justify-content-center align-items-center">
       <div
         class="col-6 col-lg-3"
-        v-for="item in filterHotProduct"
+        v-for="item in filterNewProduct"
         :key="item.id"
       >
         <ProductCard :product="item"></ProductCard>
@@ -44,8 +44,9 @@ export default {
     },
   },
   computed: {
-    filterHotProduct() {
+    filterNewProduct() {
       const self = this;
+      // 過濾出 未啟用 的產品
       return self.allProducts.filter(item => item.is_enabled !== 1);
     },
   },
