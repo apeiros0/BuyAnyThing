@@ -40,12 +40,13 @@
                   placeholder="請輸入電話"
                   required
                   v-model="user.tel"
-                  name="電話"
-                  v-validate="'required|numeric'"
-                  :class="{ 'is-invalid': errors.has('電話') }"
+                  name="tel"
+                  v-validate="'required|digits:10'"
+                  :class="{ 'is-invalid': errors.has('tel') }"
                 />
-                <span v-if="errors.has('電話')" class="text-danger ml-1">{{
-                  errors.first('電話')
+                <!-- 使用 String.replace(/old value/, new value)) 取代文字 -->
+                <span v-if="errors.has('tel')" class="text-danger ml-1">{{
+                  errors.first('tel').replace(/tel/, '電話')
                 }}</span>
               </div>
             </div>

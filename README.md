@@ -1,6 +1,6 @@
-# buy_any_thing
+# Buy Any Thing
 
-> A Vue.js project
+> 只有買不完，沒有買不到
 
 ## Build Setup
 
