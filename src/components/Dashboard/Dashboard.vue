@@ -2,11 +2,17 @@
   <section>
     <Navbar></Navbar>
     <Alert></Alert>
-    <Sidebar></Sidebar>
-    <div class="row">
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <router-view></router-view>
-      </main>
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <Sidebar></Sidebar>
+        </nav>
+        <div class="col-md-10 ml-auto">
+          <main role="main">
+            <router-view></router-view>
+          </main>
+        </div>
+      </div>
     </div>
   </section>
 </template>

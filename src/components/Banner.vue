@@ -1,13 +1,13 @@
 <template>
-  <section class="row no-gutters">
-    <div class="col-12 col-sm-6 mt-3 mt-sm-0">
+  <section class="row">
+    <div class="col-sm-5 mt-3 mt-sm-4">
       <div class="bg-cover banner-image banner-image-newproduct">
         <router-link to="/products">
           <div
             class="banner-image-content d-flex justify-content-center align-items-center"
           >
             <span
-              class="banner-image-content-title mb-0 text-white font-weight-bold text-center"
+              class="banner-image-content-title mb-0 text-dark font-weight-bold text-center"
             >
               新品上市
             </span>
@@ -15,7 +15,7 @@
         </router-link>
       </div>
     </div>
-    <div class="col-12 col-sm-6 mt-2 mt-sm-0">
+    <div class="col-sm-7 mt-3 mt-sm-4">
       <div class="bg-cover banner-image banner-image-allhave">
         <router-link to="/products">
           <div
@@ -23,7 +23,7 @@
           >
             <span
               class="banner-image-content-title mb-0 text-white font-weight-bold text-center"
-              >應有盡有</span
+              >超值好物</span
             >
           </div>
         </router-link>

@@ -1,5 +1,5 @@
 <template>
-  <section class="container fixed-margin-top mt-sm-5">
+  <section class="container fixed-margin-top mt-sm-4">
     <loading :active.sync="isLoading"></loading>
     <Alert></Alert>
     <nav aria-label="breadcrumb">
@@ -16,13 +16,13 @@
       </ol>
     </nav>
     <div class="row">
-      <div class="col-12 col-lg-7">
+      <div class="col-lg-7">
         <div
           class="product-images bg-cover"
           :style="{ backgroundImage: `url(${product.imageUrl})` }"
         ></div>
       </div>
-      <div class="col-12 col-lg-5">
+      <div class="col-lg-5">
         <div class="product-info ml-0 ml-lg-3 mt-4 mt-lg-0">
           <h1 class="h2">{{ product.title }}</h1>
           <div class="mt-3">
@@ -74,7 +74,7 @@
               type="button"
               class="btn btn-warning btn-xl btn-block"
               @click="addToCart"
-              :disabled="product.is_enabled !== 1"
+              :disabled="product.is_enabled !== 1 || status.cartLoading"
             >
               <i class="fas fa-spinner fa-pulse" v-if="status.cartLoading"></i>
               <span v-if="product.is_enabled !== 1">即將上市</span>

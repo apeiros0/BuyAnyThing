@@ -1,7 +1,7 @@
 <template>
   <section>
     <loading :active.sync="isLoading"></loading>
-    <div class="mt-6 mt-sm-4 d-flex justify-content-between align-items-center pr-3">
+    <div class="mt-4 d-flex justify-content-between align-items-center">
       <button class="btn btn-primary btn-lg" @click="openModal(true)">
         建立新產品
       </button>
@@ -15,14 +15,14 @@
             <th>產品名稱</th>
             <th width="120" class="text-right">原價</th>
             <th width="120" class="text-right">售價</th>
-            <th width="100">是否啟用</th>
+            <th width="100" class="white-space-nowrap">是否啟用</th>
             <th width="120">編輯</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="item in products" :key="item.id">
-            <td>{{ item.category }}</td>
-            <td>{{ item.title }}</td>
+            <td class="white-space-nowrap">{{ item.category }}</td>
+            <td class="white-space-nowrap">{{ item.title }}</td>
             <td class="text-right">{{ item.origin_price | currency }}</td>
             <td class="text-right">{{ item.price | currency }}</td>
             <td>
@@ -32,7 +32,7 @@
               >
               <span v-else class="text-danger">未啟用</span>
             </td>
-            <td>
+            <td class="white-space-nowrap">
               <div class="btn-group" role="group" aria-label="Basic example">
                 <button
                   class="btn btn-outline-primary btn-sm"

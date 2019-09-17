@@ -1,10 +1,10 @@
 <template>
   <section>
-    <Carousel></Carousel>
     <section class="container">
+      <Carousel></Carousel>
       <Banner></Banner>
-      <NewProducts></NewProducts>
       <Category></Category>
+      <NewProducts></NewProducts>
     </section>
   </section>
 </template>

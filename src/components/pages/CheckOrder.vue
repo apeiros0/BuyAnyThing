@@ -1,13 +1,13 @@
 <template>
   <section class="row">
     <Alert></Alert>
-    <div class="col-12 col-sm-2">
+    <div class="col-sm-2">
       <ProcessBar process="checkOrder" v-if="!order.is_paid"></ProcessBar>
       <ProcessBar process="payment" v-else></ProcessBar>
     </div>
-    <div class="col-12 col-sm-10 mt-4 mt-sm-0">
+    <div class="col-sm-10 mt-4 mt-sm-0">
       <section class="row">
-        <div class="col-12 col-lg-6 order-1 order-sm-0">
+        <div class="col-lg-6 order-1 order-sm-0">
           <h2 class="h3">確認訂單</h2>
           <table class="table mt-3">
             <tbody>
@@ -54,15 +54,15 @@
             </tfoot>
           </table>
         </div>
-        <div class="col-12 col-lg-6 order-0 order-sm-1">
+        <div class="col-lg-6 order-0 order-sm-1">
           <table
             class="table table-borderless border border-primary mt-4 mt-lg-0"
           >
             <thead class="bg-primary">
               <tr>
-                <th scope="col">商品名稱</th>
-                <th scope="col" class="text-right" width="60">數量</th>
-                <th scope="col" class="text-right" width="100">金額</th>
+                <th scope="col" class="text-white">商品名稱</th>
+                <th scope="col" class="text-right text-white" width="60">數量</th>
+                <th scope="col" class="text-right text-white" width="100">金額</th>
               </tr>
             </thead>
             <tbody>

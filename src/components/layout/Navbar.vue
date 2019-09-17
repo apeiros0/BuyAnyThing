@@ -6,12 +6,12 @@
         class="navbar navbar-expand-md navbar-light d-flex align-items-center container"
       >
         <ul class="navbar-nav">
-          <li class="nav-item mr-2">
+          <li class="nav-item mr-3">
             <router-link class="nav-link font-weight-bold" to="/index"
               >首頁</router-link
             >
           </li>
-          <li class="nav-item mr-2">
+          <li class="nav-item mr-3">
             <router-link class="nav-link font-weight-bold" to="/products"
               >商品</router-link
             >

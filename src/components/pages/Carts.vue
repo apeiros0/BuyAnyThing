@@ -1,12 +1,12 @@
 <template>
   <section class="row">
     <loading :active.sync="isLoading"></loading>
-    <div class="col-12 col-sm-2">
+    <div class="col-sm-2">
       <ProcessBar process="sendInfo"></ProcessBar>
     </div>
-    <div class="col-12 col-sm-10 mt-4 mt-sm-0">
+    <div class="col-sm-10 mt-4 mt-sm-0">
       <section class="row">
-        <div class="col-12 col-lg-6 order-1 order-sm-0">
+        <div class="col-lg-6 order-1 order-sm-0">
           <h2 class="h3 mt-4 mt-sm-0">填寫寄送資料</h2>
           <form class="mt-3" @submit.prevent="createOrder">
             <div class="form-row">
@@ -24,6 +24,7 @@
                   name="username"
                   v-validate="'required'"
                   :class="{ 'is-invalid': errors.has('username') }"
+                  :disabled="finalTotal === 0"
                 />
                 <span v-if="errors.has('username')" class="text-danger ml-1"
                   >姓名欄位請勿空白</span
@@ -43,6 +44,7 @@
                   name="tel"
                   v-validate="'required|digits:10'"
                   :class="{ 'is-invalid': errors.has('tel') }"
+                  :disabled="finalTotal === 0"
                 />
                 <!-- 使用 String.replace(/old value/, new value)) 取代文字 -->
                 <span v-if="errors.has('tel')" class="text-danger ml-1">{{
@@ -64,6 +66,7 @@
                 v-model="user.email"
                 name="Email"
                 :class="{ 'is-invalid': errors.has('Email') }"
+                :disabled="finalTotal === 0"
               />
               <span v-if="errors.has('Email')" class="text-danger ml-1">{{
                 errors.first('Email')
@@ -83,6 +86,7 @@
                 v-model="user.address"
                 name="address"
                 :class="{ 'is-invalid': errors.has('address') }"
+                :disabled="finalTotal === 0"
               />
               <span v-if="errors.has('address')" class="text-danger ml-1"
                 >地址欄位請勿空白</span
@@ -103,16 +107,16 @@
             </div>
           </form>
         </div>
-        <div class="col-12 col-lg-6 order-0 order-sm-1">
+        <div class="col-lg-6 order-0 order-sm-1">
           <table
             class="table table-borderless border border-primary mt-5 mt-md-0"
           >
             <thead class="bg-primary">
               <tr>
                 <th scope="col" width="50"></th>
-                <th scope="col">商品名稱</th>
-                <th scope="col" class="text-right" width="90">數量</th>
-                <th scope="col" class="text-right" width="100">金額</th>
+                <th scope="col" class="text-white">商品名稱</th>
+                <th scope="col" class="text-right text-white" width="90">數量</th>
+                <th scope="col" class="text-right text-white" width="100">金額</th>
               </tr>
             </thead>
             <tbody>
@@ -121,6 +125,7 @@
                   <div
                     class="cart-icon d-flex justify-content-center align-items-center"
                     @click="deleteCartItem(item.id)"
+                    :class="{ 'disabled': status.deleteCartItem !== '' }"
                   >
                     <i
                       class="fas fa-spinner fa-pulse"
@@ -175,12 +180,14 @@
                           id="inputCoupon"
                           v-model="couponCode"
                           placeholder="請輸入優惠碼"
+                          :disabled="finalTotal === 0"
                         />
                         <div class="input-group-append">
                           <button
                             type="button"
                             class="btn btn-primary"
                             @click="addCoupon"
+                            :class="{ 'disabled': finalTotal === 0 }"
                           >
                             <i
                               class="fas fa-spinner fa-pulse"
@@ -198,9 +205,10 @@
                 <td colspan="4">
                   <router-link
                     class="btn btn-dark btn-block btn-lg mr-auto"
-                    to="/products"
-                    >繼續購物</router-link
-                  >
+                    to="/products">
+                    <span v-if="finalTotal === 0">點我購物</span>
+                    <span v-else>繼續購物</span>
+                    </router-link>
                 </td>
               </tr>
             </tfoot>
@@ -266,7 +274,6 @@ export default {
       const self = this;
       const api = `${process.env.API_URL}/api/${process.env.API_PATH}/cart/${id}`;
       // 保持 Loading 效果
-      self.status.deleteCartItem = '';
       self.status.deleteCartItem = id;
       self.$http.delete(api).then((response) => {
         if (response.data.success) {
@@ -275,6 +282,7 @@ export default {
           // 更新 Header 和 Navbar 的購物車
           self.$bus.$emit('updateCart');
           self.$bus.$emit('updateCart:nav');
+          self.status.deleteCartItem = '';
         }
       });
     },

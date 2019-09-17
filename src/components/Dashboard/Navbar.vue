@@ -1,9 +1,9 @@
 <template>
   <div>
-    <nav
-      class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow"
-    >
-    <router-link class="navbar-brand col-sm-3 col-md-2 mr-0" to="/admin">後台管理</router-link>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+      <router-link class="text-white py-3 px-3 mr-0" to="/admin"
+        >後台管理</router-link
+      >
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
           <a class="nav-link text-white" href="#" @click.prevent="signout"

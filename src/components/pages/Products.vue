@@ -2,14 +2,14 @@
   <section class="products fixed-margin-top container mt-sm-5">
     <loading :active.sync="isLoading"></loading>
     <div class="row">
-      <div class="col-12 col-md-3">
+      <div class="col-md-3">
         <div class="list-group sticky-top">
           <h2 href="#" class="list-group-item bg-light h4 font-weight-bold">
             分類
           </h2>
           <a
             href="#"
-            class="list-group-item list-group-item-action text-dark"
+            class="list-group-item list-group-item-action"
             @click.prevent="categoryName = ''"
             :class="{ active: categoryName === '' }"
             >全部商品</a
@@ -17,7 +17,7 @@
           <template v-for="(item, index) in filterCategory">
             <a
               href="#"
-              class="list-group-item list-group-item-action text-dark"
+              class="list-group-item list-group-item-action"
               @click.prevent="categoryName = item"
               :class="{ active: categoryName === item }"
               :key="index"
@@ -26,7 +26,7 @@
           </template>
         </div>
       </div>
-      <div class="col-12 col-md-9 mt-3 mt-md-0">
+      <div class="col-md-9 mt-3 mt-md-0">
         <div>
           <h1 class="h3 mr-auto" v-if="categoryName === ''">全部商品</h1>
           <h1 class="h3 mr-auto" v-else>{{ categoryName }}</h1>

@@ -1,5 +1,5 @@
 <template>
-  <section class="fixed-margin-top container">
+  <section class="fixed-margin-top">
     <div id="carouselBanner" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">

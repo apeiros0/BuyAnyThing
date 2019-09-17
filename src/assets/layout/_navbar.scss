@@ -1,13 +1,14 @@
 .navbar-shadow {
-  box-shadow: 0px 6px 10px 3px $gray-500;
+  box-shadow: 0px 2px 10px 2px $gray-200;
   z-index: 2;
 }
 
 .navbar-shadow-bottom {
-  box-shadow: 5px 0px 9px 3px $gray-400;
+  box-shadow: 2px 0px 10px 2px $gray-300;
 }
 
 .nav-link {
+  font-size: 1.2rem;
   &:hover {
     color: $primary !important;
   }

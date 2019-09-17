@@ -1,6 +1,6 @@
 .coupon-content {
-  background-color: rgb(37, 59, 23);
-  border: 0.9375rem solid rgba(255, 166, 32, 0.966);
+  background-color: darken($success, 20%);
+  border: .7rem solid darken($warning, 14%);
   box-shadow: 0.3125rem 0.3125rem 0.3125rem 0.0625rem $gray-500;
 }
 
@@ -19,7 +19,7 @@
     cursor: pointer;
     transition: all .3s ease;
     &:hover {
-      color: $primary !important;
+      color: $warning !important;
     }
   }
 }

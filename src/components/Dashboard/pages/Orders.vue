@@ -1,19 +1,19 @@
 <template>
   <section>
     <loading :active.sync="isLoading"></loading>
-    <div class="mt-6 mt-sm-4 d-flex justify-content-end">
+    <div class="mt-4 mx-auto mx-sm-0 d-flex justify-content-end">
       <Pagination :pagination="pagination" @getPage="getOrders"></Pagination>
     </div>
-    <div class="table-responsive-lg mt-5">
+    <div class="table-responsive mt-5">
       <table class="table">
         <thead>
           <tr>
             <th width="120">購買時間</th>
-            <th>Email</th>
-            <th>購買款項</th>
-            <th width="100" class="text-right">應付金額</th>
-            <th width="100">是否付款</th>
-            <th width="80">修改訂單</th>
+            <th width="250">Email</th>
+            <th width="250">購買款項</th>
+            <th width="100" class="text-right white-space-nowrap">應付金額</th>
+            <th width="100" class="white-space-nowrap">是否付款</th>
+            <th width="80" class="white-space-nowrap">修改訂單</th>
           </tr>
         </thead>
         <tbody>
@@ -24,14 +24,14 @@
           >
             <td>{{ item.create_at | timeFormat }}</td>
             <td>{{ item.user.email }}</td>
-            <td>
+            <td class="white-space-nowrap">
               <!-- 直接從每筆訂單的 products 取出產品資料 -->
               <template v-for="product in item.products">
                 <div class="row no-gutters" :key="product.id">
-                  <div class="col-12 col-lg-6">
+                  <div class="col-12 col-lg-8">
                     <span>{{ product.product.title }}</span>
                   </div>
-                  <div class="col-12 col-lg-6">
+                  <div class="col-12 col-lg-4 mb-3 mb-lg-0">
                     <span>數量：{{ product.qty }}</span>
                   </div>
                 </div>

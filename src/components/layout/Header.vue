@@ -5,7 +5,7 @@
     <div class="container d-flex justify-content-center align-items-center">
       <!-- Logo -->
       <router-link to="/index" class="mr-auto">
-        <h1 class="header-logo-text d-none d-lg-block mb-0">BuyANYThing</h1>
+        <h1 class="d-none d-lg-block mb-0 font-weight-bold letter-space">Buy <u>Anything</u></h1>
         <div
           class="header-logo bg-cover d-block d-lg-none"
           alt="shop_logo"
@@ -94,7 +94,10 @@
             class="header-dropdown-cart-menu jq-header-dropdown-cart-menu pt-2"
             style="display: none;"
           >
-            <h3 class="dropdown-header">購物車</h3>
+            <h3 class="dropdown-header">
+              購物車
+              <span class="text-danger" v-if="total === 0"><span class="text-dark">：</span>我要吃商品</span>
+            </h3>
             <div
               class="dropdown-item d-flex align-items-center mb-3"
               v-for="item in carts"
@@ -103,6 +106,7 @@
               <div
                 class="cart-icon d-flex justify-content-center align-items-center mr-4"
                 @click="deleteCartItem(item.id)"
+                :class="{ disabled: status.deleteCartItem }"
               >
                 <i
                   class="fas fa-spinner fa-pulse"
@@ -131,6 +135,7 @@
               class="btn btn-warning btn-block btn-lg"
               href="#"
               @click.prevent="goToCheckout"
+              :class="{ 'disabled': total === 0 }"
               >結帳</a
             >
           </div>
@@ -195,12 +200,12 @@ export default {
     deleteCartItem(id) {
       const self = this;
       const api = `${process.env.API_URL}/api/${process.env.API_PATH}/cart/${id}`;
-      self.status.deleteCartItem = '';
       self.status.deleteCartItem = id;
       self.$http.delete(api).then((response) => {
         if (response.data.success) {
           self.getCartList();
           self.$bus.$emit('message:push', response.data.message, 'danger');
+          self.status.deleteCartItem = '';
         }
       });
     },

@@ -1,61 +1,63 @@
 <template>
   <section>
     <loading :active.sync="isLoading"></loading>
-    <div
-      class="mt-6 mt-sm-4 d-flex justify-content-between align-items-center pr-3"
-    >
+    <div class="mt-4 d-flex justify-content-between align-items-center">
       <button class="btn btn-primary btn-lg" @click="openModal(true)">
-        建立新的優惠券
+        新增優惠券
       </button>
       <Pagination :pagination="pagination" @getPage="getCoupons"></Pagination>
     </div>
-    <table class="table mt-4">
-      <thead>
-        <tr>
-          <th>名稱</th>
-          <th width="120">折扣百分比</th>
-          <th width="120">到期日</th>
-          <th width="100">是否啟用</th>
-          <th width="120">編輯</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="item in formatData" :key="item.id">
-          <td>{{ item.title }}</td>
-          <td>{{ item.percent }}%</td>
-          <td>
-            <span v-if="item.is_enabled === 1">{{
-              item.due_date | timeFormat
-            }}</span>
-            <span v-else></span>
-          </td>
-          <td>
-            <span v-if="item.is_enabled === 1" class="text-success">啟用</span>
-            <span v-else class="text-danger">未啟用</span>
-          </td>
-          <td>
-            <div class="btn-group" role="group" aria-label="Basic example">
-              <button
-                class="btn btn-outline-primary btn-sm"
-                data-toggle="modal"
-                data-target="#couponModal"
-                @click="openModal(false, item)"
+    <div class="table-responsive mt-5">
+      <table class="table mt-4">
+        <thead>
+          <tr>
+            <th>名稱</th>
+            <th width="120" class="white-space-nowrap">折扣百分比</th>
+            <th width="120">到期日</th>
+            <th width="100" class="white-space-nowrap">是否啟用</th>
+            <th width="120">編輯</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="item in formatData" :key="item.id">
+            <td class="white-space-nowrap">{{ item.title }}</td>
+            <td>{{ item.percent }}%</td>
+            <td>
+              <span v-if="item.is_enabled === 1">{{
+                item.due_date | timeFormat
+              }}</span>
+              <span v-else></span>
+            </td>
+            <td class="white-space-nowrap">
+              <span v-if="item.is_enabled === 1" class="text-success"
+                >啟用</span
               >
-                編輯
-              </button>
-              <button
-                class="btn btn-danger btn-sm"
-                data-toggle="modal"
-                data-target="#deleteModal"
-                @click="openModal(false, item, true)"
-              >
-                刪除
-              </button>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+              <span v-else class="text-danger">未啟用</span>
+            </td>
+            <td class="white-space-nowrap">
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button
+                  class="btn btn-outline-primary btn-sm"
+                  data-toggle="modal"
+                  data-target="#couponModal"
+                  @click="openModal(false, item)"
+                >
+                  編輯
+                </button>
+                <button
+                  class="btn btn-danger btn-sm"
+                  data-toggle="modal"
+                  data-target="#deleteModal"
+                  @click="openModal(false, item, true)"
+                >
+                  刪除
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <!-- Add & Edit Modal -->
     <div

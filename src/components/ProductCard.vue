@@ -28,7 +28,7 @@
         type="button"
         class="btn btn-primary btn-lg btn-block card-btn"
         @click="addToCart"
-        :disabled="product.is_enabled !== 1"
+        :disabled="product.is_enabled !== 1 || status.cartLoading"
       >
         <i class="fas fa-spinner fa-pulse" v-if="status.cartLoading"></i>
         <span v-if="product.is_enabled !== 1">即將上市</span>

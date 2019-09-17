@@ -38,10 +38,10 @@ $blue:    #007bff !default;
 $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
 $pink:    #e83e8c !default;
-$red:     #ec5968 !default;
+$red:     #cc0c2edb !default;
 $orange:  #fd7e14 !default;
 $yellow:  #ffc107 !default;
-$green:   #308043 !default;
+$green:   #2c563af5 !default;
 $teal:    #20c997 !default;
 $cyan:    #17a2b8 !default;
 
@@ -66,11 +66,11 @@ $colors: map-merge(
   $colors
 );
 
-$primary:       #ff914D !default; //$blue !default;
-$secondary:     $gray-500 !default; // $gray-600 !default;
+$primary:       #884c38e6 !default; //$blue !default;
+$secondary:     #504c4cfc !default; // $gray-500 !default; // $gray-600 !default;
 $success:       $green !default;
 $info:          $cyan !default;
-$warning:       $yellow !default;
+$warning:       #fbc843 !default; // $yellow !default;
 $danger:        $red !default;
 $light:         $gray-100 !default;
 $dark:          $gray-800 !default;
@@ -738,7 +738,7 @@ $navbar-dark-disabled-color:        rgba($white, .25) !default;
 $navbar-dark-toggler-icon-bg:       str-replace(url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='#{$navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"), "#", "%23") !default;
 $navbar-dark-toggler-border-color:  rgba($white, .1) !default;
 
-$navbar-light-color:                rgba($black, .5) !default;
+$navbar-light-color:                rgba($black, .45) !default; // rgba($black, .5) !default;
 $navbar-light-hover-color:          rgba($primary, .9) !default; // rgba($black, .7) !default;
 $navbar-light-active-color:         rgba($primary, .9) !default; // rgba($black, .9) !default;
 $navbar-light-disabled-color:       rgba($black, .3) !default;
@@ -1000,7 +1000,7 @@ $progress-bar-transition:           width .6s ease !default;
 
 // List group
 
-$list-group-color:                  null !default;
+$list-group-color:                  $dark !default; // null !default;
 $list-group-bg:                     $white !default;
 $list-group-border-color:           rgba($black, .125) !default;
 $list-group-border-width:           $border-width !default;
@@ -1010,7 +1010,7 @@ $list-group-item-padding-y:         .75rem !default;
 $list-group-item-padding-x:         1.25rem !default;
 
 $list-group-hover-bg:               $gray-100 !default;
-$list-group-active-color:           $component-active-color !default;
+$list-group-active-color:           $white !default; // $component-active-color !default;
 $list-group-active-bg:              $component-active-bg !default;
 $list-group-active-border-color:    $list-group-active-bg !default;
 

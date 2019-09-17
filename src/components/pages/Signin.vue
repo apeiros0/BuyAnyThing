@@ -2,7 +2,7 @@
   <section class="container mt-sm-5 fixed-margin-top">
     <h1 class="h2 text-center">登入</h1>
     <div class="row justify-content-center align-items-center">
-      <div class="col-12 col-md-5 border border border-primary px-3 pt-4">
+      <div class="col-md-5 border border border-primary px-3 pt-4">
         <form>
           <div class="form-group">
             <label for="inputEmail">帳號</label>
