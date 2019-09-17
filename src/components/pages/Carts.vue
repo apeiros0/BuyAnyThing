@@ -251,7 +251,7 @@ export default {
           self.total = response.data.data.total;
           self.finalTotal = response.data.data.final_total;
           self.isLoading = false;
-          // 當有套用優惠券時，isAddCoupon 就為 true (避免重新整理後，isAddCoupon 的 data 跑掉)
+          // 當有套用優惠券時，isAddCoupon 為 true (避免重新整理後，isAddCoupon 的 data 跑掉)
           self.status.isAddCoupon = self.carts.some((item) => {
             if (item.coupon) {
               return item.coupon.is_enabled === 1;
@@ -271,6 +271,7 @@ export default {
         if (response.data.success) {
           self.getCartList();
           self.$bus.$emit('message:push', response.data.message, 'danger');
+          // 更新 Header 和 Navbar 的購物車
           self.$bus.$emit('updateCart');
           self.$bus.$emit('updateCart:nav');
         }
@@ -309,8 +310,9 @@ export default {
               self.$router.push(
                 `/checkout/check_order/${response.data.orderId}`,
               );
-              self.user = {};
+              self.user = {}; // 清空寄送資料
               self.$bus.$emit('updateCart');
+              self.$bus.$emit('updateCart:nav');
             } else {
               self.$bus.$emit('message:push', response.data.message, 'danger');
             }

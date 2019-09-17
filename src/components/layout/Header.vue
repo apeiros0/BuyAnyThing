@@ -142,7 +142,7 @@
 
 <script>
 import $ from 'jquery';
-import Alert from './Dashboard/AlertMessage';
+import Alert from '../Dashboard/AlertMessage';
 
 export default {
   data() {
@@ -205,7 +205,9 @@ export default {
       });
     },
     openList(isSearch = false) {
+      // 判斷是否為 search dropdown
       if (isSearch) {
+        // 當 search 為空值，隱藏 search dropdown
         if (this.search === '') {
           $('.jq-header-dropdown-search-menu').hide();
           return;
@@ -214,6 +216,7 @@ export default {
         this.searchProducts();
       } else {
         $('.jq-header-dropdown-cart-menu').toggle();
+        // cart dropdown 10 秒後自動關閉
         setTimeout(() => {
           $('.jq-header-dropdown-cart-menu').hide();
         }, 10000);
@@ -222,13 +225,15 @@ export default {
     goToCheckout() {
       const self = this;
       $('.cart-dropdown-menu').hide();
+      // 當 cart dropdown 在 Checkout 元件時，避免點擊到 結帳中 button
       if (self.$route.name === 'Checkout') return;
       self.$router.push('/checkout');
     },
     searchProducts() {
       const self = this;
+      // 使用 filter 過濾空值
       self.searchResultArray = self.allProducts.filter(item =>
-        // 透過 match 找出要搜尋的產品 (透過 props 傳遞結果，顯示在產品上)
+        // 透過 match 找出要搜尋的產品
         item.title.match(self.search),
       );
     },
@@ -241,7 +246,7 @@ export default {
             return;
           }
           self.$router.push(`/product_info/${id}`);
-          // 透過 go 重新整理頁面
+          // 在 ProductInfo 元件中，使用 go 重新整理頁面 (因為在同樣元件中傳遞資料，不會重新生成元件)
           if (self.$route.name === 'ProductInfo') {
             self.$router.go(0);
           }

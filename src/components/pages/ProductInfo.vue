@@ -142,7 +142,7 @@ export default {
       }
       const cart = {
         product_id: self.productId,
-        qty: Math.abs(self.productQty),
+        qty: Math.abs(self.productQty), // 將 負號 轉為正值
       };
       self.status.cartLoading = true;
       self.$http.post(api, { data: cart }).then((response) => {
@@ -161,7 +161,7 @@ export default {
       if (isNaN(num)) {
         num = 1;
       }
-
+      // 超過 99 或小於 1 便不再 增加 或 減少 數量
       if (isAdd) {
         if (num >= 99) return;
         num += 1;
@@ -177,6 +177,7 @@ export default {
   computed: {
     calculatePrice() {
       let qty = Math.abs(this.productQty);
+      // 把非數字的數量都當成 1
       if (isNaN(this.productQty)) {
         qty = 1;
       }

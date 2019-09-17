@@ -55,6 +55,7 @@ import ProductCard from '@/components/ProductCard';
 import Pagination from '@/components/Pagination';
 
 export default {
+  // 接收參數
   props: ['category'],
   data() {
     return {
@@ -66,7 +67,7 @@ export default {
     };
   },
   created() {
-    this.categoryName = this.$route.query.category || '';
+    this.categoryName = this.$route.query.category || ''; // 如果其他頁面有傳遞 分類 的參數，便使用其值
     this.getProducts();
     this.getAllProducts();
   },
@@ -83,6 +84,7 @@ export default {
         }
       });
     },
+    // 取得全部商品 (分類用)
     getAllProducts() {
       const api = `${process.env.API_URL}/api/${process.env.API_PATH}/products/all`;
       const self = this;
@@ -98,9 +100,11 @@ export default {
   computed: {
     filterProduct() {
       const self = this;
+      // 當為 空值 時，便回傳 全部商品 (有分頁)
       if (self.categoryName === '') {
         return self.products;
       }
+      // 過濾 屬性 相同的產品
       return self.allProducts.filter(
         item => item.category === self.categoryName,
       );

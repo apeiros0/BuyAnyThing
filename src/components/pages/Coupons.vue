@@ -46,15 +46,10 @@ export default {
     copyCouponCode() {
       // 先建立 input
       const temp = $('<input>');
-      // append 到 body
+      // 將 input append 到 body
       $('body').append(temp);
-      // 把 coupon (清除空白) 附加到 input 上，並用 select 做全選
-      temp
-        .val(
-          $('.coupon-code')
-            .text()
-            .trim(),
-        )
+      // 把 coupon (清除空白後) 附加到 input 上，並用 select 做全選
+      temp.val($('.coupon-code').text().trim())
         .select();
       // 接著使用 execCommand:copy 複製到剪貼簿
       document.execCommand('copy');

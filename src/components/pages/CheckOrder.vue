@@ -142,8 +142,6 @@ export default {
           this.getOrder();
           self.status.payLoading = false;
           self.$bus.$emit('message:push', response.data.message, 'success');
-          self.$bus.$emit('updateCart');
-          self.$bus.$emit('updateCart:nav');
         }
       });
     },
