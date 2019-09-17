@@ -11,8 +11,8 @@ $bg-hover: darken($primary, 30%) !important;
 }
 
 .header-logo {
-  width: 150px;
-  height: 60px;
+  width: 9.375rem;
+  height: 3.75rem;
   @include image-path("shop_logo.png");
 
   &-text {
@@ -84,7 +84,7 @@ $bg-hover: darken($primary, 30%) !important;
     }
     &-link {
       color: $black;
-      transition: all 0.3s ease;
+      transition: all .3s ease;
       &:hover {
         color: $primary;
       }

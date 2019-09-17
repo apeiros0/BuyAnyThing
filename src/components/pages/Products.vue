@@ -104,7 +104,7 @@ export default {
       if (self.categoryName === '') {
         return self.products;
       }
-      // 過濾 屬性 相同的產品
+      // 過濾 分類 相同的產品
       return self.allProducts.filter(
         item => item.category === self.categoryName,
       );

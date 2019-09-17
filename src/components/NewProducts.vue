@@ -46,7 +46,6 @@ export default {
   computed: {
     filterNewProduct() {
       const self = this;
-      // 過濾出 未啟用 的產品
       return self.allProducts.filter(item => item.is_enabled !== 1);
     },
   },
