@@ -1,4 +1,4 @@
-# Buy Any Thing
+# Buy Anything
 
 > 只有買不完，沒有買不到
 

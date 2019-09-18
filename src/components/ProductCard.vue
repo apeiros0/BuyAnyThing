@@ -26,7 +26,7 @@
       </p>
       <button
         type="button"
-        class="btn btn-primary btn-lg btn-block card-btn"
+        class="btn btn-primary btn-lg btn-block"
         @click="addToCart"
         :disabled="product.is_enabled !== 1 || status.cartLoading"
       >
